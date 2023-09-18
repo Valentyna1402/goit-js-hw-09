@@ -28,8 +28,8 @@ function onFormSubmit(evt) {
   const delayStep = parseInt(stepInputEl.value);
   const amount = parseInt(amountInputEl.value);
 
-  for (let i = 1; i <= amount; i++) {
-    const newDelay = firstDelay + delayStep * i;
+  for (let i = 0; i < amount; i++) {
+    const newDelay = delayStep * i + firstDelay;
 
     createPromise(i, newDelay)
       .then(({ position, delay }) => {

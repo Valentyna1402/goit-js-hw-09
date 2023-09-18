@@ -4,6 +4,8 @@ const bodyEl = document.querySelector('body');
 
 let intervalId = null;
 
+stopBtn.disabled = true;
+
 startBtn.addEventListener('click', startColorSwitch);
 stopBtn.addEventListener('click', stopColorSwitch);
 
@@ -12,10 +14,12 @@ function startColorSwitch() {
     bodyEl.style.backgroundColor = getRandomHexColor();
   }, 1000);
   startBtn.disabled = true;
+  stopBtn.disabled = false;
 }
 
 function stopColorSwitch() {
   startBtn.disabled = false;
+  stopBtn.disabled = true;
   clearInterval(intervalId);
 }
 
